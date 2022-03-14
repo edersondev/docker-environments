@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  springboot:
+    build:
+      context: .
+      args:
+        PATH_FILE_JAR: ./myapp/target/myapp.jar # caminho para o arquivo jar
+        NEW_NAME_FILE_JAR: tasks_backend.jar # nome do arquivo jar
+    image: tasks/backend
+    ports:
+      - "8080:8080"
+
