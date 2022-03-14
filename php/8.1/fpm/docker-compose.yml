@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+  fpm:
+    build: docker_image/fpm
+    image: myapp/php-fpm:8.1
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app:/var/www/html
+    # Conf to use Xdebug 3
+    # For user linux add lines below and replace "host-gateway" for your IP address
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+
+  nginx:
+    build: docker_image/nginx
+    image: myapp/nginx:1.21.6
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - fpm
+    # networks:
+    #   default:
+    #     aliases:
+    #       - myapp.local
+    # environment:
+    #   SERVER_NAME: myapp.local
+    #   DOCUMENT_ROOT: public
