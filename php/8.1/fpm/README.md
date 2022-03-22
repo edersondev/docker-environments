@@ -27,7 +27,9 @@ O caminho da pasta da aplicação é /var/www/html nos containers do PHP-PHP e N
 - No VsCode instale a extensão [PHP Debug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug)
 
 Arquivo de configuração do Xdebug no VsCode (launch.json):
-`{
+
+```
+{
   // Use o IntelliSense para saber mais sobre os atributos possíveis.
   // Focalizar para exibir as descrições dos atributos existentes.
   // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
@@ -51,7 +53,9 @@ Arquivo de configuração do Xdebug no VsCode (launch.json):
       }
     }
   ]
-}`
+}
+```
+
 
 E por último edite o docker-compose.yml o serviço do php-fpm adicione o 'extra_hosts' para mapear o endereço host.docker.internal para o endereço IP da sua máquina.
 
