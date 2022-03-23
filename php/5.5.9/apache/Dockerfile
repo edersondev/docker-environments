@@ -53,9 +53,9 @@ RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 RUN { \
     echo 'xdebug.remote_enable=1'; \
     echo 'xdebug.remote_autostart=1'; \
-    echo 'xdebug.remote_port=9000'; \
     echo 'xdebug.remote_connect_back=1'; \
-    echo 'xdebug.idekey=vscode'; \
+    echo 'xdebug.idekey=VSCODE'; \
+    echo 'xdebug.remote_host=host.docker.internal' \
 } > /etc/php5/apache2/conf.d/xdebug-conf.ini
 
 RUN { \
