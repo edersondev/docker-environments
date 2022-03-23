@@ -107,6 +107,7 @@ RUN tar -xf php-5.2.9.tar.gz && cd php-5.2.9 && ./configure \
     --enable-filter \
     --enable-xml \
     --enable-dom \
+    --enable-simplexml \
     && make && find -type f -name '*.a' -delete && make install && make clean
 
 # Copia o arquivo de conf
