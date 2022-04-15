@@ -45,6 +45,10 @@ RUN mv composer.phar composer
 WORKDIR /root
 RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 
+# Clean
+RUN apt-get clean && apt-get autoclean && apt-get autoremove -y \
+&& rm -rf /var/lib/apt/lists/*
+
 WORKDIR /var/www/html
 
 CMD ["apache2-foreground"]
