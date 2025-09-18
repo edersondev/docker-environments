@@ -1,0 +1,18 @@
+services:
+  app:
+    image: php:8.4-fpm-alpine
+    container_name: php-fpm
+    volumes:
+      - ./app:/var/www/html
+
+  webserver:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
